@@ -12,7 +12,8 @@ class bcolors:
 	FAIL = '\033[91m'
 	ENDC = '\033[0m'
 
-app_name = 'freeradius3.0'
+# app_name = 'freeradius3.0'
+app_name = '167b0eb942f4'
 
 parser = argparse.ArgumentParser(description='Manage %s container' % app_name)
 parser.add_argument("execute", choices=['create','start','stop','restart','delete'], help='manage %s server' % app_name)
@@ -27,7 +28,7 @@ cmd_dict = { \
 	"create": \
 		"docker run --net=host -e radpass={1} -e mysql_server={2} -e mysql_login={3} -e mysql_passwd={4} " \
 		"-e time_zone=America/Argentina/Buenos_Aires --name {0} -d {0}" \
-		.format('167b0eb942f4', args.radius_secret, args.mysql_server, args.mysql_login, args.mysql_passwd), \
+		.format(app_name, args.radius_secret, args.mysql_server, args.mysql_login, args.mysql_passwd), \
 	"start": "docker start %s" % app_name, \
 	"stop": "docker stop %s" % app_name, \
 	"restart": "docker restart %s" % app_name, \
