@@ -13,7 +13,7 @@ class bcolors:
 	ENDC = '\033[0m'
 
 # app_name = 'freeradius3.0'
-app_name = '167b0eb942f4'
+app_name = 'freeradius'
 
 parser = argparse.ArgumentParser(description='Manage %s container' % app_name)
 parser.add_argument("execute", choices=['create','start','stop','restart','delete'], help='manage %s server' % app_name)
