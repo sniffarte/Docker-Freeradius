@@ -14,6 +14,14 @@
 # Table structure for table 'radacct'
 #
 
+CREATE DATABASE radius;
+
+GRANT ALL ON radius.* TO radius@'%' IDENTIFIED BY "radpass";
+
+flush privilegies;
+
+USE radius;
+
 CREATE TABLE radacct (
   radacctid bigint(21) NOT NULL auto_increment,
   acctsessionid varchar(64) NOT NULL default '',
