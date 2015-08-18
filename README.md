@@ -7,4 +7,4 @@ The <b>only</b> porpuse of my updates is to make the project work in my envirome
 El <b>unico</b> proposito de mis update es para hacer que el proyecto funcione en mi entorno.
 <br><br>
 
-<b>TODO:</b> PostAuth -> Borrar usuario.
+<b>TODO:</b> PostAuth -> Quitar seccion de INSERT en tabla Post-Auth.
