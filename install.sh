@@ -13,6 +13,8 @@ sed -i -e "/client localhost/i client 0.0.0.0/0{\n\tsecret = $radpass\n}" \
 if [[ ! -z "$mysql_server" ]]; then
   sql_driver='mysql'
   sed -i "/driver =.*/ a\ \n\tserver = \"$mysql_server\"\n\tlogin = \"$mysql_login\"\n\tpassword = \"$mysql_passwd\"" /etc/freeradius/mods-available/sql
+  sed -i -e "/post-auth {/,$ {s/query/ \\tquery = \"DELETE FROM radcheck WHERE username=\'%{SQL-User-Name}\'\"\n\t\tquery/}" /etc/freeradius/mods-config/sql/main/mysql/queries.conf
+
 else
   sql_driver='sqlite'
   sqlite_db=`ls /opt/db | grep sqlite`
