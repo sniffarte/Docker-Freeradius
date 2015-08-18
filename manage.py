@@ -36,7 +36,7 @@ cmd_dict = { \
 if args.db_path:
 	cmd_dict['create'] = \
 		"docker run --net=host -e radpass={1} -e time_zone=America/Argentina/Buenos_Aires -v {2}:/opt/db --name {0} -d {0}" \
-		.format('167b0eb942f4', args.radius_secret, args.db_path)
+		.format(app_name, args.radius_secret, args.db_path)
 cmd_key = args.execute
 
 process = subprocess.Popen(shlex.split(cmd_dict[cmd_key]), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
